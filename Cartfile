@@ -1,2 +1,3 @@
 github "SwiftyJSON/SwiftyJSON"
+github "Palleas/SwiftGif" "carthage-support"
 

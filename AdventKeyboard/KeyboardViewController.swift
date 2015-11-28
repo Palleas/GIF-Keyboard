@@ -8,7 +8,7 @@
 
 import UIKit
 import AdventCalendarKit
-import MobileCoreServices
+import SwiftGifiOS
 
 class KeyboardViewController: UIInputViewController {
     let gifView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -97,7 +97,7 @@ extension KeyboardViewController: UICollectionViewDataSource {
             guard let data = data else { return }
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                let image = UIImage(data: data)
+                let image = UIImage.gifWithData(data)
                 let cell = self.gifView.cellForItemAtIndexPath(indexPath) as! ImageCell
                 cell.imageView.image = image
             })

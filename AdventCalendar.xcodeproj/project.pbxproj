@@ -23,6 +23,9 @@
 		7ABA116D1C0A52B200CC594B /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ABA11691C0A527500CC594B /* SwiftyJSON.framework */; };
 		7ABA116E1C0A540700CC594B /* AdventCalendarKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ABA115A1C0A501B00CC594B /* AdventCalendarKit.framework */; };
 		7ABA11701C0A59D200CC594B /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABA116F1C0A59D200CC594B /* ImageCell.swift */; };
+		7ABA119B1C0A60AA00CC594B /* SwiftGifiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ABA119A1C0A60AA00CC594B /* SwiftGifiOS.framework */; };
+		7ABA119C1C0A60AA00CC594B /* SwiftGifiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7ABA119A1C0A60AA00CC594B /* SwiftGifiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7ABA119D1C0A60DE00CC594B /* SwiftGifiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ABA119A1C0A60AA00CC594B /* SwiftGifiOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				7ABA119C1C0A60AA00CC594B /* SwiftGifiOS.framework in Embed Frameworks */,
 				7ABA116B1C0A527600CC594B /* SwiftyJSON.framework in Embed Frameworks */,
 				7ABA11621C0A501B00CC594B /* AdventCalendarKit.framework in Embed Frameworks */,
 			);
@@ -85,6 +89,7 @@
 		7ABA11671C0A503000CC594B /* GiphyClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyClient.swift; sourceTree = "<group>"; };
 		7ABA11691C0A527500CC594B /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		7ABA116F1C0A59D200CC594B /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		7ABA119A1C0A60AA00CC594B /* SwiftGifiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGifiOS.framework; path = Carthage/Build/iOS/SwiftGifiOS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ABA119B1C0A60AA00CC594B /* SwiftGifiOS.framework in Frameworks */,
 				7ABA116A1C0A527500CC594B /* SwiftyJSON.framework in Frameworks */,
 				7ABA11611C0A501B00CC594B /* AdventCalendarKit.framework in Frameworks */,
 			);
@@ -102,6 +108,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7ABA116E1C0A540700CC594B /* AdventCalendarKit.framework in Frameworks */,
+				7ABA119D1C0A60DE00CC594B /* SwiftGifiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +126,7 @@
 		7ABA11271C0A4B2300CC594B = {
 			isa = PBXGroup;
 			children = (
+				7ABA119A1C0A60AA00CC594B /* SwiftGifiOS.framework */,
 				7ABA11691C0A527500CC594B /* SwiftyJSON.framework */,
 				7ABA11321C0A4B2300CC594B /* AdventCalendar */,
 				7ABA114A1C0A4B9000CC594B /* AdventKeyboard */,
@@ -317,6 +325,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftGifiOS.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -507,6 +516,10 @@
 		7ABA11521C0A4B9000CC594B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = AdventKeyboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.perfectly-cooked.AdventCalendar.AdventKeyboard";
@@ -518,6 +531,10 @@
 		7ABA11531C0A4B9000CC594B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = AdventKeyboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.perfectly-cooked.AdventCalendar.AdventKeyboard";
