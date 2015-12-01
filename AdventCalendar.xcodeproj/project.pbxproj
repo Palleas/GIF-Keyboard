@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A39639B1C0D302B00851479 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39639A1C0D302B00851479 /* DayCollectionViewCell.swift */; };
+		7A39639D1C0D335200851479 /* PWChristmasfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A39639C1C0D335200851479 /* PWChristmasfont.ttf */; };
 		7ABA11341C0A4B2300CC594B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABA11331C0A4B2300CC594B /* AppDelegate.swift */; };
 		7ABA11361C0A4B2300CC594B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABA11351C0A4B2300CC594B /* ViewController.swift */; };
 		7ABA11391C0A4B2300CC594B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABA11371C0A4B2300CC594B /* Main.storyboard */; };
@@ -73,6 +75,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7A39639A1C0D302B00851479 /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
+		7A39639C1C0D335200851479 /* PWChristmasfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PWChristmasfont.ttf; sourceTree = "<group>"; };
 		7ABA11301C0A4B2300CC594B /* AdventCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdventCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABA11331C0A4B2300CC594B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7ABA11351C0A4B2300CC594B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,11 +127,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7ABA11271C0A4B2300CC594B = {
+		7A3963991C0D2EEC00851479 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				7ABA119A1C0A60AA00CC594B /* SwiftGifiOS.framework */,
 				7ABA11691C0A527500CC594B /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7ABA11271C0A4B2300CC594B = {
+			isa = PBXGroup;
+			children = (
+				7A3963991C0D2EEC00851479 /* Frameworks */,
 				7ABA11321C0A4B2300CC594B /* AdventCalendar */,
 				7ABA114A1C0A4B9000CC594B /* AdventKeyboard */,
 				7ABA115B1C0A501B00CC594B /* AdventCalendarKit */,
@@ -148,12 +160,14 @@
 		7ABA11321C0A4B2300CC594B /* AdventCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				7A39639C1C0D335200851479 /* PWChristmasfont.ttf */,
 				7ABA11331C0A4B2300CC594B /* AppDelegate.swift */,
 				7ABA11351C0A4B2300CC594B /* ViewController.swift */,
 				7ABA11371C0A4B2300CC594B /* Main.storyboard */,
 				7ABA113A1C0A4B2300CC594B /* Assets.xcassets */,
 				7ABA113C1C0A4B2300CC594B /* LaunchScreen.storyboard */,
 				7ABA113F1C0A4B2300CC594B /* Info.plist */,
+				7A39639A1C0D302B00851479 /* DayCollectionViewCell.swift */,
 			);
 			path = AdventCalendar;
 			sourceTree = "<group>";
@@ -298,6 +312,7 @@
 				7ABA113E1C0A4B2300CC594B /* LaunchScreen.storyboard in Resources */,
 				7ABA113B1C0A4B2300CC594B /* Assets.xcassets in Resources */,
 				7ABA11391C0A4B2300CC594B /* Main.storyboard in Resources */,
+				7A39639D1C0D335200851479 /* PWChristmasfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7ABA11361C0A4B2300CC594B /* ViewController.swift in Sources */,
+				7A39639B1C0D302B00851479 /* DayCollectionViewCell.swift in Sources */,
 				7ABA11341C0A4B2300CC594B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -615,6 +631,7 @@
 				7ABA11441C0A4B2300CC594B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7ABA11511C0A4B9000CC594B /* Build configuration list for PBXNativeTarget "AdventKeyboard" */ = {
 			isa = XCConfigurationList;
@@ -623,6 +640,7 @@
 				7ABA11531C0A4B9000CC594B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7ABA11631C0A501C00CC594B /* Build configuration list for PBXNativeTarget "AdventCalendarKit" */ = {
 			isa = XCConfigurationList;
@@ -631,6 +649,7 @@
 				7ABA11651C0A501C00CC594B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
