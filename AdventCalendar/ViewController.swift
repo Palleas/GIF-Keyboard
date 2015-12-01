@@ -24,6 +24,22 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: UICollectionViewDelegate {
+    func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+        let calendar = NSCalendar.currentCalendar()
+        let comps = calendar.components([.Day, .Month, .Year], fromDate: NSDate())
+        if comps.year == 2015 && comps.month < 12 {
+            return true
+        }
+        
+        if comps.year == 2015 && indexPath.row + 1 > comps.day {
+            return false
+        }
+        
+        return true
+    }
+}
+
 extension ViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 24
