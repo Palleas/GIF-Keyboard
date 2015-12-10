@@ -7,20 +7,44 @@
 //
 
 import UIKit
-import AdventCalendarKit
 import SwiftGifiOS
+import YLGIFImage
+import MobileCoreServices;
 
 class KeyboardViewController: UIInputViewController {
     let gifView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
+    var gifs: [NSURL] = []
+    let toolbar = UIStackView()
 
-    let client  = GiphyClient(key: "dc6zaTOxFJmzC")
-    var gifs: [GiphyClient.Gif] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let switchKeyboardButton = UIButton(type: .Custom)
+        switchKeyboardButton.setImage(UIImage(named: "switch"), forState: .Normal)
+        switchKeyboardButton.imageView?.contentMode = .ScaleAspectFit
+        switchKeyboardButton.addTarget(self, action: Selector("didTapSwitchButton:"), forControlEvents: .TouchUpInside)
+        switchKeyboardButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        toolbar.addArrangedSubview(switchKeyboardButton)
+        
+        let deleteKeyboardButton = UIButton(type: .Custom)
+        deleteKeyboardButton.setImage(UIImage(named: "delete"), forState: .Normal)
+        deleteKeyboardButton.imageView?.contentMode = .ScaleAspectFit
+        deleteKeyboardButton.addTarget(self, action: Selector("didTapDeleteButton:"), forControlEvents: .TouchUpInside)
+        deleteKeyboardButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        toolbar.addArrangedSubview(deleteKeyboardButton)
+
+        view.addSubview(toolbar)
+        toolbar.axis = .Horizontal
+        toolbar.translatesAutoresizingMaskIntoConstraints = false
+        toolbar.heightAnchor.constraintEqualToConstant(40).active = true
+        toolbar.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
+        toolbar.leftAnchor.constraintEqualToAnchor(view.leftAnchor).active = true
+        toolbar.rightAnchor.constraintEqualToAnchor(view.rightAnchor).active = true
+        toolbar.distribution = .FillEqually
         let layout = gifView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.itemSize = CGSize(width: 105, height: 60)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
         
         gifView.registerClass(ImageCell.self, forCellWithReuseIdentifier: "GIFCell")
         gifView.dataSource = self
@@ -31,36 +55,42 @@ class KeyboardViewController: UIInputViewController {
         gifView.topAnchor.constraintEqualToAnchor(view.topAnchor).active = true
         gifView.leftAnchor.constraintEqualToAnchor(view.leftAnchor).active = true
         gifView.rightAnchor.constraintEqualToAnchor(view.rightAnchor).active = true
-        gifView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
+        gifView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor, constant: -40).active = true
+        
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        let manager = NSFileManager.defaultManager()
         
-        client.search("doctor who") { (result) -> Void in
-            print(result)
-            switch result {
-            case .Success(let gifs):
-                self.gifs = gifs
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.gifView.reloadData()
-                })
-            case .Error(let error):
-                print("Oh noes \(error)")
-            }
-        }
+        let directory = manager.containerURLForSecurityApplicationGroupIdentifier("group.perfectly-cooked.adventcalendar")!
+        let gifs = manager.enumeratorAtURL(directory, includingPropertiesForKeys: nil, options: [.SkipsSubdirectoryDescendants, .SkipsHiddenFiles]) { (url, error) -> Bool in
+            return true
+        }!.allObjects as! [NSURL]
+        
+        self.gifs = gifs.filter({ $0.pathExtension == "gif" })
+        self.gifView.reloadData()
+    }
+    
+    func didTapDeleteButton(sender: UIButton) {
+        textDocumentProxy.deleteBackward()
+    }
+    
+    func didTapSwitchButton(sender: UIButton) {
+        advanceToNextInputMode()
     }
 }
 
 extension KeyboardViewController: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print("Copied1 ? ")
         guard let cell = collectionView.cellForItemAtIndexPath(indexPath) as? ImageCell else { return }
-        print("Copied2 ? ")
-        guard let image = cell.imageView.image else { return }
         
-        UIPasteboard.generalPasteboard().image = image
-        print("copied")
+        let gif = gifs[indexPath.row]
+        if let data = NSData(contentsOfURL: gif) {
+            UIPasteboard.generalPasteboard().setData(data, forPasteboardType: kUTTypeGIF as String)
+        }
+
+        cell.showCopied()
     }
 }
 
@@ -71,17 +101,16 @@ extension KeyboardViewController: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("GIFCell", forIndexPath: indexPath) as! ImageCell
-        
         let gif = gifs[indexPath.row]
-        NSURLSession.sharedSession().dataTaskWithURL(gif) { (data, _, error) -> Void in
-            guard let data = data else { return }
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                let image = UIImage.gifWithData(data)
-                let cell = self.gifView.cellForItemAtIndexPath(indexPath) as! ImageCell
-                cell.imageView.image = image
-            })
-        }.resume()
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+            if let data = NSData(contentsOfURL: gif) {
+                dispatch_async(dispatch_get_main_queue()) {
+                    let localCell = collectionView.cellForItemAtIndexPath(indexPath) as! ImageCell
+                    localCell.imageView.image = UIImage(data: data)
+                }
+            }
+        }
         
         return cell
     }
