@@ -52,7 +52,11 @@ extension ViewController: UICollectionViewDelegate {
         
         let directory = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.perfectly-cooked.adventcalendar")!
 
-        listBucketSignalProducer("pcscalendar", prefix: "\(indexPath.row + 1)-")
+        downloadObject("pcscalendar", key: "manifest.json", directory: directory)
+            .flatMap(FlattenStrategy.Latest) { (downloaded) -> SignalProducer<AWSS3Object, NSError> in
+                print("Downloaded manifest \(downloaded)")
+                return self.listBucketSignalProducer("pcscalendar", prefix: "\(indexPath.row + 1)-")
+            }
             .flatMap(.Concat) { (object) -> SignalProducer<NSURL, NSError> in
                 return self.downloadObject("pcscalendar", key: object.key, directory: directory)
             }
