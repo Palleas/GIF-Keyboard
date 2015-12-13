@@ -10,17 +10,20 @@ import UIKit
 import SwiftGifOrigin
 
 class GIFsTableViewController: UITableViewController {
+    typealias Completion = () -> ()
+    
     let directory: NSURL
+    let completion: Completion
     private var images = [NSURL]()
     
-    init(directory: NSURL) {
+    init(directory: NSURL, completion: Completion) {
         self.directory = directory
+        self.completion = completion
         
         super.init(style: .Plain)
         
         tableView.separatorStyle = .None
         tableView.registerClass(ImageTableViewCell.self, forCellReuseIdentifier: "ImageCell")
-        
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -36,8 +39,16 @@ class GIFsTableViewController: UITableViewController {
         guard let gifs = enumerator.allObjects.filter({ $0.pathExtension == "gif" }) as? [NSURL] else { return }
         
         self.images = gifs
-        print(self.images)
         self.tableView.reloadData()
+        
+        navigationController?.navigationBar.tintColor = UIColor.blueColor()
+        
+        let done = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: Selector("didTapDone"))
+        navigationItem.rightBarButtonItem = done
+    }
+    
+    func didTapDone() {
+        self.completion()
     }
 
     // MARK: - Table view data source

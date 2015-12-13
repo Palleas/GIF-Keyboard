@@ -39,8 +39,10 @@ class ViewController: UIViewController {
     }
     
     func didTapBookmarksButton(button: UIBarButtonItem) {
-        let bookmarks = GIFsTableViewController(directory: directory)
-        navigationController?.pushViewController(bookmarks, animated: true)
+        let bookmarks = UINavigationController(rootViewController: GIFsTableViewController(directory: directory) {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        })
+        presentViewController(bookmarks, animated: true, completion: nil)
     }
 }
 
