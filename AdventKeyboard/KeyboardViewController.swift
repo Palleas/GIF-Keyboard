@@ -15,7 +15,12 @@ class KeyboardViewController: UIInputViewController {
     let gifView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
     var gifs: [NSURL] = []
     let toolbar = UIStackView()
-
+    
+    lazy private(set) var directory: NSURL? = {
+        let manager = NSFileManager.defaultManager()
+        return manager.containerURLForSecurityApplicationGroupIdentifier("group.perfectly-cooked.adventcalendar")!
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +37,13 @@ class KeyboardViewController: UIInputViewController {
         deleteKeyboardButton.addTarget(self, action: Selector("didTapDeleteButton:"), forControlEvents: .TouchUpInside)
         deleteKeyboardButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         toolbar.addArrangedSubview(deleteKeyboardButton)
-
+        
+        let listKeyboardButton = UIButton(type: .Custom)
+        listKeyboardButton.setImage(UIImage(named: "list"), forState: .Normal)
+        listKeyboardButton.imageView?.contentMode = .ScaleAspectFit
+        listKeyboardButton.addTarget(self, action: Selector("didTapListButton:"), forControlEvents: .TouchUpInside)
+        toolbar.addArrangedSubview(listKeyboardButton)
+        
         view.addSubview(toolbar)
         toolbar.axis = .Horizontal
         toolbar.translatesAutoresizingMaskIntoConstraints = false
@@ -61,19 +72,23 @@ class KeyboardViewController: UIInputViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        let manager = NSFileManager.defaultManager()
         
-        let directory = manager.containerURLForSecurityApplicationGroupIdentifier("group.perfectly-cooked.adventcalendar")!
-        let gifs = manager.enumeratorAtURL(directory, includingPropertiesForKeys: nil, options: [.SkipsSubdirectoryDescendants, .SkipsHiddenFiles]) { (url, error) -> Bool in
-            return true
-        }!.allObjects as! [NSURL]
-        
-        self.gifs = gifs.filter({ $0.pathExtension == "gif" })
+        self.gifs = gifsInDirectory(self.directory!, prefix: nil)
         self.gifView.reloadData()
     }
     
     func didTapDeleteButton(sender: UIButton) {
         textDocumentProxy.deleteBackward()
+    }
+    
+    func didTapListButton(sender: UIButton) {
+        let vc = DaysTableViewController(directory: directory!) { day in
+            self.gifs = gifsInDirectory(self.directory!, prefix: "\(day)-")
+            self.gifView.reloadData()
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
+        presentViewController(vc, animated: true, completion: nil)
     }
     
     func didTapSwitchButton(sender: UIButton) {
@@ -114,4 +129,20 @@ extension KeyboardViewController: UICollectionViewDataSource {
         
         return cell
     }
+}
+
+func gifsInDirectory(directory: NSURL, prefix: String?) -> [NSURL] {
+    let options : NSDirectoryEnumerationOptions = [.SkipsSubdirectoryDescendants, .SkipsHiddenFiles]
+    guard let enumerator = NSFileManager.defaultManager().enumeratorAtURL(directory, includingPropertiesForKeys: nil, options: options, errorHandler: nil) else { return [] }
+    
+    guard let gifs = enumerator.allObjects.filter({ $0.pathExtension == "gif" }) as? [NSURL] else { return [] }
+    
+    if let prefix = prefix {
+        return gifs.filter({ (url) -> Bool in
+            guard let filename = url.lastPathComponent else { return false }
+            return filename.hasPrefix(prefix)
+        })
+    }
+    
+    return gifs
 }
