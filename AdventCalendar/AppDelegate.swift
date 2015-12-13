@@ -23,6 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialsProvider)
         AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
 
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().translucent = true
+        UINavigationBar.appearance().tintColor = .whiteColor()
 
         return true
     }

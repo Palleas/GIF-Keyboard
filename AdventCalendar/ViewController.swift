@@ -28,6 +28,17 @@ class ViewController: UIViewController {
         background.leftAnchor.constraintEqualToAnchor(view.leftAnchor).active = true
         background.rightAnchor.constraintEqualToAnchor(view.rightAnchor).active = true
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let bookmarksButton = UIBarButtonItem(barButtonSystemItem: .Bookmarks, target: self, action: Selector("didTapBookmarksButton:"))
+        navigationItem.rightBarButtonItem = bookmarksButton
+    }
+    
+    func didTapBookmarksButton(button: UIBarButtonItem) {
+        
+    }
 }
 
 extension ViewController: UICollectionViewDelegate {
