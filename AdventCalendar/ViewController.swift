@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     private(set) var downloadRequests = Array<AWSS3TransferManagerDownloadRequest?>()
     private(set) var downloadFileURLs = Array<NSURL?>()
 
+    let directory = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.perfectly-cooked.adventcalendar")!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,7 +39,8 @@ class ViewController: UIViewController {
     }
     
     func didTapBookmarksButton(button: UIBarButtonItem) {
-        
+        let bookmarks = GIFsTableViewController(directory: directory)
+        navigationController?.pushViewController(bookmarks, animated: true)
     }
 }
 
@@ -61,15 +64,13 @@ extension ViewController: UICollectionViewDelegate {
             SVProgressHUD.showWithStatus("Downloading...")
         })
         
-        let directory = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.perfectly-cooked.adventcalendar")!
-
         downloadObject("pcscalendar", key: "manifest.json", directory: directory)
             .flatMap(FlattenStrategy.Latest) { (downloaded) -> SignalProducer<AWSS3Object, NSError> in
                 print("Downloaded manifest \(downloaded)")
                 return self.listBucketSignalProducer("pcscalendar", prefix: "\(indexPath.row + 1)-")
             }
             .flatMap(.Concat) { (object) -> SignalProducer<NSURL, NSError> in
-                return self.downloadObject("pcscalendar", key: object.key, directory: directory)
+                return self.downloadObject("pcscalendar", key: object.key, directory: self.directory)
             }
             .collect()
             .on(failed: { print("Got error: \($0)") })

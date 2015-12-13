@@ -4,12 +4,14 @@ PODS:
     - AWSCore (= 2.3.0)
   - Keys (1.0.0)
   - SVProgressHUD (1.1.3)
+  - SwiftGifOrigin (1.5.1)
   - YLGIFImage (0.11)
 
 DEPENDENCIES:
   - AWSS3
   - Keys (from `Pods/CocoaPodsKeys`)
   - SVProgressHUD
+  - SwiftGifOrigin (~> 1.5)
   - YLGIFImage
 
 EXTERNAL SOURCES:
@@ -21,6 +23,7 @@ SPEC CHECKSUMS:
   AWSS3: 0185482a8136da9c7542a767567ee18106b38bca
   Keys: 7d2ff6ff42f6903358267ce56e9392f83c31acfe
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+  SwiftGifOrigin: 2dd51f087f77b676e75bb572f521e06e9ced6c58
   YLGIFImage: c0ae132fe80e5282b2762a97d14e23ba71a748ae
 
 COCOAPODS: 0.39.0

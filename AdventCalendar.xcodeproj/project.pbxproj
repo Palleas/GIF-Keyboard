@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		6BBBC47C608009CE1B9DFB0C /* Pods_AdventCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64E77A14404E802E35E1548 /* Pods_AdventCalendar.framework */; };
+		7A14E5561C1E173400729BBF /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A14E5551C1E173400729BBF /* ImageTableViewCell.swift */; };
 		7A39639B1C0D302B00851479 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39639A1C0D302B00851479 /* DayCollectionViewCell.swift */; };
 		7A39639D1C0D335200851479 /* PWChristmasfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A39639C1C0D335200851479 /* PWChristmasfont.ttf */; };
 		7A3963A01C0D4CBC00851479 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A39639E1C0D4CBC00851479 /* ReactiveCocoa.framework */; };
 		7A3963A11C0D4CBC00851479 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A39639F1C0D4CBC00851479 /* Result.framework */; };
 		7A4B1DE61C0E6C3B0061FAA3 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A4B1DE51C0E6C3B0061FAA3 /* Media.xcassets */; };
 		7A4EBF941C1920F100E6B544 /* DaysTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4EBF931C1920F100E6B544 /* DaysTableViewController.swift */; };
+		7A75DE0D1C1E14C500E48991 /* GIFsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A75DE0C1C1E14C500E48991 /* GIFsTableViewController.swift */; };
 		7ABA11341C0A4B2300CC594B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABA11331C0A4B2300CC594B /* AppDelegate.swift */; };
 		7ABA11361C0A4B2300CC594B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABA11351C0A4B2300CC594B /* ViewController.swift */; };
 		7ABA11391C0A4B2300CC594B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABA11371C0A4B2300CC594B /* Main.storyboard */; };
@@ -72,12 +74,14 @@
 		079734F59DFCDF048B0A6D3D /* Pods-AdventKeyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdventKeyboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-AdventKeyboard/Pods-AdventKeyboard.release.xcconfig"; sourceTree = "<group>"; };
 		1619839E1FFBF26EF89A3746 /* Pods-AdventKeyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdventKeyboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AdventKeyboard/Pods-AdventKeyboard.debug.xcconfig"; sourceTree = "<group>"; };
 		501293591D32912944255B8F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A14E5551C1E173400729BBF /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		7A39639A1C0D302B00851479 /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A39639C1C0D335200851479 /* PWChristmasfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PWChristmasfont.ttf; sourceTree = "<group>"; };
 		7A39639E1C0D4CBC00851479 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		7A39639F1C0D4CBC00851479 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		7A4B1DE51C0E6C3B0061FAA3 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		7A4EBF931C1920F100E6B544 /* DaysTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysTableViewController.swift; sourceTree = "<group>"; };
+		7A75DE0C1C1E14C500E48991 /* GIFsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFsTableViewController.swift; sourceTree = "<group>"; };
 		7A7C3FBA1C0E15E300071AC5 /* AdventCalendar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AdventCalendar.entitlements; sourceTree = "<group>"; };
 		7A7C3FBB1C0E173C00071AC5 /* AdventKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AdventKeyboard.entitlements; sourceTree = "<group>"; };
 		7ABA11301C0A4B2300CC594B /* AdventCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdventCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +174,8 @@
 				7ABA113C1C0A4B2300CC594B /* LaunchScreen.storyboard */,
 				7ABA113F1C0A4B2300CC594B /* Info.plist */,
 				7A39639A1C0D302B00851479 /* DayCollectionViewCell.swift */,
+				7A75DE0C1C1E14C500E48991 /* GIFsTableViewController.swift */,
+				7A14E5551C1E173400729BBF /* ImageTableViewCell.swift */,
 			);
 			path = AdventCalendar;
 			sourceTree = "<group>";
@@ -431,7 +437,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A75DE0D1C1E14C500E48991 /* GIFsTableViewController.swift in Sources */,
 				7ABA11361C0A4B2300CC594B /* ViewController.swift in Sources */,
+				7A14E5561C1E173400729BBF /* ImageTableViewCell.swift in Sources */,
 				7A39639B1C0D302B00851479 /* DayCollectionViewCell.swift in Sources */,
 				7ABA11341C0A4B2300CC594B /* AppDelegate.swift in Sources */,
 			);

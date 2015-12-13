@@ -7,6 +7,7 @@ inhibit_all_warnings!
 target 'AdventCalendar' do
 	pod 'AWSS3'
 	pod 'SVProgressHUD'
+	pod 'SwiftGifOrigin', '~> 1.5'
 end
 
 target 'AdventKeyboard' do
