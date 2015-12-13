@@ -73,7 +73,15 @@ class KeyboardViewController: UIInputViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.gifs = gifsInDirectory(self.directory!, prefix: nil)
+        let predicate: (String -> Bool)?
+        if let path = self.directory?.URLByAppendingPathComponent("favorites.plist").path where NSFileManager.defaultManager().fileExistsAtPath(path) {
+            let favorites = Set<String>(NSArray(contentsOfFile: path) as! [String])
+            predicate = { favorites.contains($0) }
+        } else {
+            predicate = nil
+        }
+        
+        self.gifs = gifsInDirectory(self.directory!, matchingPredicate: predicate)
         self.gifView.reloadData()
     }
     
@@ -83,7 +91,7 @@ class KeyboardViewController: UIInputViewController {
     
     func didTapListButton(sender: UIButton) {
         let vc = DaysTableViewController(directory: directory!) { day in
-            self.gifs = gifsInDirectory(self.directory!, prefix: "\(day)-")
+            self.gifs = gifsInDirectory(self.directory!, matchingPredicate: { $0.hasPrefix("\(day)-") })
             self.gifView.reloadData()
             self.dismissViewControllerAnimated(true, completion: nil)
         }
@@ -131,16 +139,16 @@ extension KeyboardViewController: UICollectionViewDataSource {
     }
 }
 
-func gifsInDirectory(directory: NSURL, prefix: String?) -> [NSURL] {
+func gifsInDirectory(directory: NSURL, matchingPredicate: (String -> Bool)?) -> [NSURL] {
     let options : NSDirectoryEnumerationOptions = [.SkipsSubdirectoryDescendants, .SkipsHiddenFiles]
     guard let enumerator = NSFileManager.defaultManager().enumeratorAtURL(directory, includingPropertiesForKeys: nil, options: options, errorHandler: nil) else { return [] }
     
     guard let gifs = enumerator.allObjects.filter({ $0.pathExtension == "gif" }) as? [NSURL] else { return [] }
     
-    if let prefix = prefix {
+    if let matchingPredicate = matchingPredicate {
         return gifs.filter({ (url) -> Bool in
             guard let filename = url.lastPathComponent else { return false }
-            return filename.hasPrefix(prefix)
+            return matchingPredicate(filename)
         })
     }
     
