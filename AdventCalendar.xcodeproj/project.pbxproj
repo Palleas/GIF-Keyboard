@@ -14,7 +14,7 @@
 		7A3963A01C0D4CBC00851479 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A39639E1C0D4CBC00851479 /* ReactiveCocoa.framework */; };
 		7A3963A11C0D4CBC00851479 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A39639F1C0D4CBC00851479 /* Result.framework */; };
 		7A4B1DE61C0E6C3B0061FAA3 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A4B1DE51C0E6C3B0061FAA3 /* Media.xcassets */; };
-		7A4EBF941C1920F100E6B544 /* DaysTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4EBF931C1920F100E6B544 /* DaysTableViewController.swift */; };
+		7A4EBF941C1920F100E6B544 /* FilterSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4EBF931C1920F100E6B544 /* FilterSelectTableViewController.swift */; };
 		7A75DE0D1C1E14C500E48991 /* GIFsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A75DE0C1C1E14C500E48991 /* GIFsTableViewController.swift */; };
 		7ABA11341C0A4B2300CC594B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABA11331C0A4B2300CC594B /* AppDelegate.swift */; };
 		7ABA11361C0A4B2300CC594B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABA11351C0A4B2300CC594B /* ViewController.swift */; };
@@ -80,7 +80,7 @@
 		7A39639E1C0D4CBC00851479 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		7A39639F1C0D4CBC00851479 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		7A4B1DE51C0E6C3B0061FAA3 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		7A4EBF931C1920F100E6B544 /* DaysTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysTableViewController.swift; sourceTree = "<group>"; };
+		7A4EBF931C1920F100E6B544 /* FilterSelectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterSelectTableViewController.swift; sourceTree = "<group>"; };
 		7A75DE0C1C1E14C500E48991 /* GIFsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFsTableViewController.swift; sourceTree = "<group>"; };
 		7A7C3FBA1C0E15E300071AC5 /* AdventCalendar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AdventCalendar.entitlements; sourceTree = "<group>"; };
 		7A7C3FBB1C0E173C00071AC5 /* AdventKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AdventKeyboard.entitlements; sourceTree = "<group>"; };
@@ -188,7 +188,7 @@
 				7ABA114D1C0A4B9000CC594B /* Info.plist */,
 				7ABA116F1C0A59D200CC594B /* ImageCell.swift */,
 				7A4B1DE51C0E6C3B0061FAA3 /* Media.xcassets */,
-				7A4EBF931C1920F100E6B544 /* DaysTableViewController.swift */,
+				7A4EBF931C1920F100E6B544 /* FilterSelectTableViewController.swift */,
 			);
 			path = AdventKeyboard;
 			sourceTree = "<group>";
@@ -451,7 +451,7 @@
 			files = (
 				7ABA114C1C0A4B9000CC594B /* KeyboardViewController.swift in Sources */,
 				7ABA11701C0A59D200CC594B /* ImageCell.swift in Sources */,
-				7A4EBF941C1920F100E6B544 /* DaysTableViewController.swift in Sources */,
+				7A4EBF941C1920F100E6B544 /* FilterSelectTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

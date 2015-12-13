@@ -8,11 +8,17 @@
 
 import UIKit
 
-class DaysTableViewController: UITableViewController {
-    typealias Completion = (day: String) -> Void
+class FilterSelectTableViewController: UITableViewController {
+    typealias Completion = (Selection) -> Void
     
     let directory: NSURL
     let completion: Completion
+    
+    enum Selection {
+        case Day(String)
+        case Favorites
+    }
+    
     private(set) var manifest: [String: String] = [:]
     
     init(directory: NSURL, completion: Completion) {
@@ -34,18 +40,27 @@ class DaysTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return manifest.count
+        return manifest.count + 1
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DayCell", forIndexPath: indexPath)
-        cell.textLabel?.text = Array(manifest.values)[indexPath.row]
-
+        
+        if indexPath.row == 0  {
+            cell.textLabel?.text = "Favoris ⭐️"
+        } else {
+            cell.textLabel?.text = Array(manifest.values)[indexPath.row - 1]
+        }
+        
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        completion(day: Array(manifest.keys)[indexPath.row])
+        if indexPath.row == 0 {
+            completion(.Favorites)
+        } else {
+            completion(.Day(Array(manifest.keys)[indexPath.row - 1]))
+        }
     }
 
 }

@@ -15,6 +15,7 @@ class KeyboardViewController: UIInputViewController {
     let gifView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
     var gifs: [NSURL] = []
     let toolbar = UIStackView()
+    var favorites = Set<String>()
     
     lazy private(set) var directory: NSURL? = {
         let manager = NSFileManager.defaultManager()
@@ -23,6 +24,10 @@ class KeyboardViewController: UIInputViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let path = self.directory?.URLByAppendingPathComponent("favorites.plist").path where NSFileManager.defaultManager().fileExistsAtPath(path) {
+            self.favorites = Set<String>(NSArray(contentsOfFile: path) as! [String])
+        }
         
         let switchKeyboardButton = UIButton(type: .Custom)
         switchKeyboardButton.setImage(UIImage(named: "switch"), forState: .Normal)
@@ -90,8 +95,14 @@ class KeyboardViewController: UIInputViewController {
     }
     
     func didTapListButton(sender: UIButton) {
-        let vc = DaysTableViewController(directory: directory!) { day in
-            self.gifs = gifsInDirectory(self.directory!, matchingPredicate: { $0.hasPrefix("\(day)-") })
+        let vc = FilterSelectTableViewController(directory: directory!) { selection in
+            switch selection {
+            case .Day(let day):
+                self.gifs = gifsInDirectory(self.directory!, matchingPredicate: { $0.hasPrefix("\(day)-") })
+            case .Favorites:
+                self.gifs = gifsInDirectory(self.directory!, matchingPredicate: { self.favorites.contains($0) })
+            }
+            
             self.gifView.reloadData()
             self.dismissViewControllerAnimated(true, completion: nil)
         }
