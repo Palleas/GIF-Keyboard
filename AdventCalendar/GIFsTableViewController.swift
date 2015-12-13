@@ -14,6 +14,8 @@ class GIFsTableViewController: UITableViewController {
     
     let directory: NSURL
     let completion: Completion
+    var favorites = Set<String>()
+    
     private var images = [NSURL]()
     
     init(directory: NSURL, completion: Completion) {
@@ -21,6 +23,11 @@ class GIFsTableViewController: UITableViewController {
         self.completion = completion
         
         super.init(style: .Plain)
+
+        if let path = directory.URLByAppendingPathComponent("favorites.plist").path where NSFileManager.defaultManager().fileExistsAtPath(path) {
+            self.favorites = Set(NSArray(contentsOfFile: path) as! [String])
+            print(favorites)
+        }
         
         tableView.separatorStyle = .None
         tableView.registerClass(ImageTableViewCell.self, forCellReuseIdentifier: "ImageCell")
@@ -41,13 +48,14 @@ class GIFsTableViewController: UITableViewController {
         self.images = gifs
         self.tableView.reloadData()
         
-        navigationController?.navigationBar.tintColor = UIColor.blueColor()
+        navigationController?.navigationBar.tintColor = .blueColor()
         
         let done = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: Selector("didTapDone"))
         navigationItem.rightBarButtonItem = done
     }
     
     func didTapDone() {
+        NSArray(array: Array(favorites)).writeToURL(directory.URLByAppendingPathComponent("favorites.plist"), atomically: true)
         self.completion()
     }
 
@@ -70,6 +78,12 @@ class GIFsTableViewController: UITableViewController {
                 dispatch_async(dispatch_get_main_queue()) {
                     let localCell = tableView.cellForRowAtIndexPath(indexPath) as! ImageTableViewCell
                     localCell.preview.image = UIImage.gifWithData(data)
+                    
+                    if let filename = gif.lastPathComponent where self.favorites.contains(filename) {
+                        localCell.favorite = true
+                    } else {
+                        localCell.favorite = false
+                    }
                 }
             }
         }
@@ -84,6 +98,12 @@ class GIFsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         guard let image = images[indexPath.row].lastPathComponent else { return }
         
-        print("name = \(image)")
+        if favorites.contains(image) {
+            favorites.remove(image)
+        } else {
+            favorites.insert(image)
+        }
+        
+        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
 }
