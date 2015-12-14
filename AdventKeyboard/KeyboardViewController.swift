@@ -7,12 +7,13 @@
 //
 
 import UIKit
-import SwiftGifiOS
 import YLGIFImage
 import MobileCoreServices;
 
 class KeyboardViewController: UIInputViewController {
     let gifView = UICollectionView(frame: CGRectZero, collectionViewLayout: UICollectionViewFlowLayout())
+    let downloader = INDGIFPreviewDownloader(URLSessionConfiguration: NSURLSessionConfiguration.defaultSessionConfiguration())
+
     var gifs: [NSURL] = []
     let toolbar = UIStackView()
     var favorites = Set<String>()
@@ -136,16 +137,14 @@ extension KeyboardViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("GIFCell", forIndexPath: indexPath) as! ImageCell
         let gif = gifs[indexPath.row]
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-            if let data = NSData(contentsOfURL: gif) {
-                dispatch_async(dispatch_get_main_queue()) {
-                    let localCell = collectionView.cellForItemAtIndexPath(indexPath) as! ImageCell
-                    localCell.imageView.image = UIImage(data: data)
-                }
+
+        downloader.downloadGIFPreviewFrameAtURL(gif, completionQueue: dispatch_get_main_queue()) { image, error in
+            if let image = image {
+                let localCell = collectionView.cellForItemAtIndexPath(indexPath) as! ImageCell
+                localCell.imageView.image = image
             }
         }
-        
+
         return cell
     }
 }

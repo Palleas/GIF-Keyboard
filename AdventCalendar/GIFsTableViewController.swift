@@ -11,6 +11,8 @@ import SwiftGifOrigin
 
 class GIFsTableViewController: UITableViewController {
     typealias Completion = () -> ()
+
+    let downloader = INDGIFPreviewDownloader(URLSessionConfiguration: NSURLSessionConfiguration.defaultSessionConfiguration())
     
     let directory: NSURL
     let completion: Completion
@@ -72,18 +74,16 @@ class GIFsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ImageCell", forIndexPath: indexPath)
         let gif = images[indexPath.row]
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-            if let data = NSData(contentsOfURL: gif) {
-                dispatch_async(dispatch_get_main_queue()) {
-                    let localCell = tableView.cellForRowAtIndexPath(indexPath) as! ImageTableViewCell
-                    localCell.preview.image = UIImage.gifWithData(data)
-                    
-                    if let filename = gif.lastPathComponent where self.favorites.contains(filename) {
-                        localCell.favorite = true
-                    } else {
-                        localCell.favorite = false
-                    }
+
+        downloader.downloadGIFPreviewFrameAtURL(gif, completionQueue: dispatch_get_main_queue()) { (image, error) -> Void in
+            let localCell = tableView.cellForRowAtIndexPath(indexPath) as! ImageTableViewCell
+            if let image = image {
+                localCell.preview.image = image
+                
+                if let filename = gif.lastPathComponent where self.favorites.contains(filename) {
+                    localCell.favorite = true
+                } else {
+                    localCell.favorite = false
                 }
             }
         }

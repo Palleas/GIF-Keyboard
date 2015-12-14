@@ -72,7 +72,7 @@ extension ViewController: UICollectionViewDelegate {
                 return self.listBucketSignalProducer("pcscalendar", prefix: "\(indexPath.row + 1)-")
             }
             .flatMap(.Concat) { (object) -> SignalProducer<NSURL, NSError> in
-                return self.downloadObject("pcscalendar", key: object.key, directory: self.directory)
+                return self.downloadObject("pcscalendar", key: object.key!, directory: self.directory)
             }
             .collect()
             .on(failed: { print("Got error: \($0)") })
