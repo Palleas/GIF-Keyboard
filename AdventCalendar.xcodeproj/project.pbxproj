@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6BBBC47C608009CE1B9DFB0C /* Pods_AdventCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64E77A14404E802E35E1548 /* Pods_AdventCalendar.framework */; };
+		3E6DDE144F9BD178465DD5F8 /* Pods_AdventKeyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39ACEAC8943F0D8015AC080F /* Pods_AdventKeyboard.framework */; };
 		7A14E5561C1E173400729BBF /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A14E5551C1E173400729BBF /* ImageTableViewCell.swift */; };
 		7A39639B1C0D302B00851479 /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39639A1C0D302B00851479 /* DayCollectionViewCell.swift */; };
 		7A39639D1C0D335200851479 /* PWChristmasfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A39639C1C0D335200851479 /* PWChristmasfont.ttf */; };
-		7A3963A01C0D4CBC00851479 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A39639E1C0D4CBC00851479 /* ReactiveCocoa.framework */; };
-		7A3963A11C0D4CBC00851479 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A39639F1C0D4CBC00851479 /* Result.framework */; };
 		7A4B1DE61C0E6C3B0061FAA3 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A4B1DE51C0E6C3B0061FAA3 /* Media.xcassets */; };
 		7A4EBF941C1920F100E6B544 /* FilterSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4EBF931C1920F100E6B544 /* FilterSelectTableViewController.swift */; };
+		7A5903C31C1F324700ECDC39 /* INDGIFPreviewDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5903C21C1F324700ECDC39 /* INDGIFPreviewDownloader.m */; };
+		7A5903C41C1F324F00ECDC39 /* INDGIFPreviewDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5903C21C1F324700ECDC39 /* INDGIFPreviewDownloader.m */; };
 		7A75DE0D1C1E14C500E48991 /* GIFsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A75DE0C1C1E14C500E48991 /* GIFsTableViewController.swift */; };
 		7ABA11341C0A4B2300CC594B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABA11331C0A4B2300CC594B /* AppDelegate.swift */; };
 		7ABA11361C0A4B2300CC594B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABA11351C0A4B2300CC594B /* ViewController.swift */; };
@@ -23,14 +23,9 @@
 		7ABA113E1C0A4B2300CC594B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABA113C1C0A4B2300CC594B /* LaunchScreen.storyboard */; };
 		7ABA114C1C0A4B9000CC594B /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABA114B1C0A4B9000CC594B /* KeyboardViewController.swift */; };
 		7ABA11501C0A4B9000CC594B /* AdventKeyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7ABA11491C0A4B9000CC594B /* AdventKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		7ABA116A1C0A527500CC594B /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ABA11691C0A527500CC594B /* SwiftyJSON.framework */; };
-		7ABA116B1C0A527600CC594B /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7ABA11691C0A527500CC594B /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7ABA11701C0A59D200CC594B /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABA116F1C0A59D200CC594B /* ImageCell.swift */; };
-		7ABA119B1C0A60AA00CC594B /* SwiftGifiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ABA119A1C0A60AA00CC594B /* SwiftGifiOS.framework */; };
-		7ABA119C1C0A60AA00CC594B /* SwiftGifiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7ABA119A1C0A60AA00CC594B /* SwiftGifiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7ABA119D1C0A60DE00CC594B /* SwiftGifiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ABA119A1C0A60AA00CC594B /* SwiftGifiOS.framework */; };
-		9887BBD1B4309A3C07E414AD /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 501293591D32912944255B8F /* Pods.framework */; };
-		FAAC6B7CED5A140E79AD932E /* Pods_AdventKeyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBD5A4B83F56A8351DE3F96C /* Pods_AdventKeyboard.framework */; };
+		9D2C8B0DD902CEF5A66E5DE4 /* Pods_AdventCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BBDEAE4C145E33AD9667949 /* Pods_AdventCalendar.framework */; };
+		B2374E60579D795C66C1B54C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27B11F2C103DCE8CD80688A /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +56,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7ABA119C1C0A60AA00CC594B /* SwiftGifiOS.framework in Embed Frameworks */,
-				7ABA116B1C0A527600CC594B /* SwiftyJSON.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,14 +66,16 @@
 		01A031FA98BB268757F1E8E7 /* Pods-AdventCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdventCalendar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AdventCalendar/Pods-AdventCalendar.debug.xcconfig"; sourceTree = "<group>"; };
 		079734F59DFCDF048B0A6D3D /* Pods-AdventKeyboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdventKeyboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-AdventKeyboard/Pods-AdventKeyboard.release.xcconfig"; sourceTree = "<group>"; };
 		1619839E1FFBF26EF89A3746 /* Pods-AdventKeyboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdventKeyboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AdventKeyboard/Pods-AdventKeyboard.debug.xcconfig"; sourceTree = "<group>"; };
-		501293591D32912944255B8F /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		39ACEAC8943F0D8015AC080F /* Pods_AdventKeyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdventKeyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A14E5551C1E173400729BBF /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		7A39639A1C0D302B00851479 /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A39639C1C0D335200851479 /* PWChristmasfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PWChristmasfont.ttf; sourceTree = "<group>"; };
-		7A39639E1C0D4CBC00851479 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
-		7A39639F1C0D4CBC00851479 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		7A4B1DE51C0E6C3B0061FAA3 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		7A4EBF931C1920F100E6B544 /* FilterSelectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterSelectTableViewController.swift; sourceTree = "<group>"; };
+		7A5903BA1C1E297A00ECDC39 /* AdventKeyboard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AdventKeyboard-Bridging-Header.h"; sourceTree = "<group>"; };
+		7A5903C11C1F324700ECDC39 /* INDGIFPreviewDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INDGIFPreviewDownloader.h; sourceTree = "<group>"; };
+		7A5903C21C1F324700ECDC39 /* INDGIFPreviewDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INDGIFPreviewDownloader.m; sourceTree = "<group>"; };
+		7A5903CC1C1F331300ECDC39 /* AdventCalendar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AdventCalendar-Bridging-Header.h"; sourceTree = "<group>"; };
 		7A75DE0C1C1E14C500E48991 /* GIFsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFsTableViewController.swift; sourceTree = "<group>"; };
 		7A7C3FBA1C0E15E300071AC5 /* AdventCalendar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AdventCalendar.entitlements; sourceTree = "<group>"; };
 		7A7C3FBB1C0E173C00071AC5 /* AdventKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AdventKeyboard.entitlements; sourceTree = "<group>"; };
@@ -94,12 +89,10 @@
 		7ABA11491C0A4B9000CC594B /* AdventKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AdventKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABA114B1C0A4B9000CC594B /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		7ABA114D1C0A4B9000CC594B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7ABA11691C0A527500CC594B /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		7ABA116F1C0A59D200CC594B /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
-		7ABA119A1C0A60AA00CC594B /* SwiftGifiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGifiOS.framework; path = Carthage/Build/iOS/SwiftGifiOS.framework; sourceTree = "<group>"; };
+		9BBDEAE4C145E33AD9667949 /* Pods_AdventCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdventCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C137A53EDA1B450F0CDC065A /* Pods-AdventCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdventCalendar.release.xcconfig"; path = "Pods/Target Support Files/Pods-AdventCalendar/Pods-AdventCalendar.release.xcconfig"; sourceTree = "<group>"; };
-		E64E77A14404E802E35E1548 /* Pods_AdventCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdventCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EBD5A4B83F56A8351DE3F96C /* Pods_AdventKeyboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdventKeyboard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D27B11F2C103DCE8CD80688A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,12 +100,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ABA119B1C0A60AA00CC594B /* SwiftGifiOS.framework in Frameworks */,
-				7ABA116A1C0A527500CC594B /* SwiftyJSON.framework in Frameworks */,
-				7A3963A11C0D4CBC00851479 /* Result.framework in Frameworks */,
-				6BBBC47C608009CE1B9DFB0C /* Pods_AdventCalendar.framework in Frameworks */,
-				7A3963A01C0D4CBC00851479 /* ReactiveCocoa.framework in Frameworks */,
-				9887BBD1B4309A3C07E414AD /* Pods.framework in Frameworks */,
+				B2374E60579D795C66C1B54C /* Pods.framework in Frameworks */,
+				9D2C8B0DD902CEF5A66E5DE4 /* Pods_AdventCalendar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,8 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ABA119D1C0A60DE00CC594B /* SwiftGifiOS.framework in Frameworks */,
-				FAAC6B7CED5A140E79AD932E /* Pods_AdventKeyboard.framework in Frameworks */,
+				3E6DDE144F9BD178465DD5F8 /* Pods_AdventKeyboard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,20 +119,26 @@
 		7A3963991C0D2EEC00851479 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7A39639E1C0D4CBC00851479 /* ReactiveCocoa.framework */,
-				7A39639F1C0D4CBC00851479 /* Result.framework */,
-				7ABA119A1C0A60AA00CC594B /* SwiftGifiOS.framework */,
-				7ABA11691C0A527500CC594B /* SwiftyJSON.framework */,
-				E64E77A14404E802E35E1548 /* Pods_AdventCalendar.framework */,
-				EBD5A4B83F56A8351DE3F96C /* Pods_AdventKeyboard.framework */,
-				501293591D32912944255B8F /* Pods.framework */,
+				D27B11F2C103DCE8CD80688A /* Pods.framework */,
+				9BBDEAE4C145E33AD9667949 /* Pods_AdventCalendar.framework */,
+				39ACEAC8943F0D8015AC080F /* Pods_AdventKeyboard.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7A5903C01C1F324700ECDC39 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7A5903C11C1F324700ECDC39 /* INDGIFPreviewDownloader.h */,
+				7A5903C21C1F324700ECDC39 /* INDGIFPreviewDownloader.m */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		7ABA11271C0A4B2300CC594B = {
 			isa = PBXGroup;
 			children = (
+				7A5903C01C1F324700ECDC39 /* Common */,
 				7A3963991C0D2EEC00851479 /* Frameworks */,
 				7ABA11321C0A4B2300CC594B /* AdventCalendar */,
 				7ABA114A1C0A4B9000CC594B /* AdventKeyboard */,
@@ -176,6 +170,7 @@
 				7A39639A1C0D302B00851479 /* DayCollectionViewCell.swift */,
 				7A75DE0C1C1E14C500E48991 /* GIFsTableViewController.swift */,
 				7A14E5551C1E173400729BBF /* ImageTableViewCell.swift */,
+				7A5903CC1C1F331300ECDC39 /* AdventCalendar-Bridging-Header.h */,
 			);
 			path = AdventCalendar;
 			sourceTree = "<group>";
@@ -189,6 +184,7 @@
 				7ABA116F1C0A59D200CC594B /* ImageCell.swift */,
 				7A4B1DE51C0E6C3B0061FAA3 /* Media.xcassets */,
 				7A4EBF931C1920F100E6B544 /* FilterSelectTableViewController.swift */,
+				7A5903BA1C1E297A00ECDC39 /* AdventKeyboard-Bridging-Header.h */,
 			);
 			path = AdventKeyboard;
 			sourceTree = "<group>";
@@ -217,7 +213,6 @@
 				7ABA112E1C0A4B2300CC594B /* Resources */,
 				7ABA11541C0A4B9000CC594B /* Embed App Extensions */,
 				7ABA11661C0A501C00CC594B /* Embed Frameworks */,
-				7ABA116C1C0A528700CC594B /* Carthage */,
 				51B6F5B4D18FB8942AA07D76 /* Embed Pods Frameworks */,
 				2B500D5467D939C40EC871F4 /* Copy Pods Resources */,
 			);
@@ -365,7 +360,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AdventCalendar/Pods-AdventCalendar-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5CB7958BB35EAFA89FBADA93 /* Check Pods Manifest.lock */ = {
@@ -382,23 +377,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
-		};
-		7ABA116C1C0A528700CC594B /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
-			);
-			name = Carthage;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		7B01FD32B5CBAC8D22ED7DB6 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -437,6 +415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A5903C31C1F324700ECDC39 /* INDGIFPreviewDownloader.m in Sources */,
 				7A75DE0D1C1E14C500E48991 /* GIFsTableViewController.swift in Sources */,
 				7ABA11361C0A4B2300CC594B /* ViewController.swift in Sources */,
 				7A14E5561C1E173400729BBF /* ImageTableViewCell.swift in Sources */,
@@ -451,6 +430,7 @@
 			files = (
 				7ABA114C1C0A4B9000CC594B /* KeyboardViewController.swift in Sources */,
 				7ABA11701C0A59D200CC594B /* ImageCell.swift in Sources */,
+				7A5903C41C1F324F00ECDC39 /* INDGIFPreviewDownloader.m in Sources */,
 				7A4EBF941C1920F100E6B544 /* FilterSelectTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -585,6 +565,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.perfectly-cooked.AdventCalendar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "AdventCalendar/AdventCalendar-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -607,6 +588,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.perfectly-cooked.AdventCalendar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "AdventCalendar/AdventCalendar-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -614,6 +596,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1619839E1FFBF26EF89A3746 /* Pods-AdventKeyboard.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AdventKeyboard/AdventKeyboard.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -627,6 +610,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "AdventKeyboard/AdventKeyboard-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -634,6 +619,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 079734F59DFCDF048B0A6D3D /* Pods-AdventKeyboard.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AdventKeyboard/AdventKeyboard.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -647,6 +633,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "AdventKeyboard/AdventKeyboard-Bridging-Header.h";
 			};
 			name = Release;
 		};
