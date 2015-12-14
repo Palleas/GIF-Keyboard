@@ -6,6 +6,7 @@ target 'AdventCalendar' do
 	pod 'SVProgressHUD'
 	pod 'SwiftGifOrigin', '~> 1.5'
 	pod 'ReactiveCocoa', '4.0.4-alpha-4'
+	pod 'JTSImageViewController', '~> 1.5'
 end
 
 target 'AdventKeyboard' do

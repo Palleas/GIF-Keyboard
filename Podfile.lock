@@ -2,6 +2,7 @@ PODS:
   - AWSCore (2.3.2)
   - AWSS3 (2.3.2):
     - AWSCore (= 2.3.2)
+  - JTSImageViewController (1.5.1)
   - Keys (1.0.0)
   - ReactiveCocoa (4.0.4-alpha-4):
     - ReactiveCocoa/UI (= 4.0.4-alpha-4)
@@ -21,6 +22,7 @@ PODS:
 
 DEPENDENCIES:
   - AWSS3
+  - JTSImageViewController (~> 1.5)
   - Keys (from `Pods/CocoaPodsKeys`)
   - ReactiveCocoa (= 4.0.4-alpha-4)
   - SVProgressHUD
@@ -34,6 +36,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AWSCore: c2f69975fd2caf38a10736961de28a0105cdb00c
   AWSS3: 9ac201e7a4ad8be0b68348c77acfd100027b97af
+  JTSImageViewController: 1f8ce1cc93dab0d0af8e53badeea7528560cfec9
   Keys: 7d2ff6ff42f6903358267ce56e9392f83c31acfe
   ReactiveCocoa: e459ea92099447802df20c4735e31e8139b06094
   Result: caef80340451e1f07492fa1e89117f83613bce24

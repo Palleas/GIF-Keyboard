@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftGifOrigin
+import JTSImageViewController
 
 class GIFsTableViewController: UITableViewController {
     typealias Completion = () -> ()
@@ -28,7 +29,6 @@ class GIFsTableViewController: UITableViewController {
 
         if let path = directory.URLByAppendingPathComponent("favorites.plist").path where NSFileManager.defaultManager().fileExistsAtPath(path) {
             self.favorites = Set(NSArray(contentsOfFile: path) as! [String])
-            print(favorites)
         }
         
         tableView.separatorStyle = .None
@@ -72,14 +72,15 @@ class GIFsTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ImageCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("ImageCell", forIndexPath: indexPath) as! ImageTableViewCell
+        cell.delegate = self
+        
         let gif = images[indexPath.row]
 
         downloader.downloadGIFPreviewFrameAtURL(gif, completionQueue: dispatch_get_main_queue()) { (image, error) -> Void in
             let localCell = tableView.cellForRowAtIndexPath(indexPath) as! ImageTableViewCell
             if let image = image {
                 localCell.preview.image = image
-                
                 if let filename = gif.lastPathComponent where self.favorites.contains(filename) {
                     localCell.favorite = true
                 } else {
@@ -96,8 +97,26 @@ class GIFsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        guard let image = images[indexPath.row].lastPathComponent else { return }
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! ImageTableViewCell
         
+        let gif = images[indexPath.row]
+        
+        let imageInfo = JTSImageInfo()
+        imageInfo.imageURL = gif
+        imageInfo.referenceRect = cell.preview.frame
+        imageInfo.referenceView = cell.preview.superview
+        
+        let controller = JTSImageViewController(imageInfo: imageInfo, mode: JTSImageViewControllerMode.Image, backgroundStyle: .Scaled)
+        controller.showFromViewController(self, transition: .FromOriginalPosition)
+    }
+}
+
+
+extension GIFsTableViewController: ImageTableViewCellDelegate {
+    func didFavoriteOnCell(cell: ImageTableViewCell) {
+        guard let indexPath = tableView.indexPathForCell(cell) else { return }
+        guard let image = images[indexPath.row].lastPathComponent else { return }
+
         if favorites.contains(image) {
             favorites.remove(image)
         } else {

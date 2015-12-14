@@ -8,7 +8,15 @@
 
 import UIKit
 
+
+protocol ImageTableViewCellDelegate: class {
+    func didFavoriteOnCell(cell: ImageTableViewCell)
+
+}
+
 class ImageTableViewCell: UITableViewCell {
+    weak var delegate: ImageTableViewCellDelegate?
+    
     let preview = UIImageView()
     let favoriteImage: UIImageView = {
         let star = UIImageView(image: UIImage(named: "favorite")?.imageWithRenderingMode(.AlwaysTemplate))
@@ -44,6 +52,9 @@ class ImageTableViewCell: UITableViewCell {
         favoriteImage.heightAnchor.constraintEqualToConstant(20).active = true
         favoriteImage.topAnchor.constraintEqualToAnchor(contentView.topAnchor, constant: 20).active = true
         favoriteImage.leftAnchor.constraintEqualToAnchor(contentView.leftAnchor, constant: 20).active = true
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: Selector("didDoubleTap"))
+        contentView.addGestureRecognizer(longPress)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -52,5 +63,9 @@ class ImageTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         preview.image = nil
+    }
+    
+    func didDoubleTap() {
+        delegate?.didFavoriteOnCell(self)
     }
 }
