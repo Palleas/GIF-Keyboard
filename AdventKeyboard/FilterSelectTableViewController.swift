@@ -29,7 +29,15 @@ class FilterSelectTableViewController: UITableViewController {
         
         let manifestURL = directory.URLByAppendingPathComponent("manifest.json")
         let data = NSData(contentsOfURL: manifestURL)!
-        manifest = try! NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! [String: String]
+        let fullManifest = try! NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! [String: String]
+        var manifest = [String:String]()
+        let currentDay = NSCalendar.currentCalendar().component(.Day, fromDate: NSDate())
+        fullManifest.forEach { (key, name) -> () in
+            if let day = Int(key) where day <= currentDay {
+                manifest[key] = name
+            }
+        }
+        self.manifest = manifest
         
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "DayCell")
         tableView.reloadData()
